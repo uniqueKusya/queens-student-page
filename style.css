@@ -1,0 +1,138 @@
+:root {
+  --black:#111111; --charcoal:#3a3a3a; --gray:#8a8a8a; --light-gray:#e6e6e6; --silver:#c7c7c7;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  background: var(--black);
+  color: #fff;
+}
+
+header {
+  background: var(--charcoal);
+  color: #fff;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 0.5px;
+}
+
+main {
+  background: #fff;
+  color: #1a1a1a;
+  max-width: 900px;
+  margin: 2rem auto;
+  border-radius: 12px;
+  padding: 1.5rem 2rem 2rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+a { color: var(--charcoal); text-decoration: none; }
+a:hover { color: var(--black); text-decoration: underline; }
+
+section { margin-bottom: 2rem; }
+section:last-child { margin-bottom: 0; }
+
+h2 {
+  color: var(--charcoal);
+  font-size: 1.6rem;
+  border-bottom: 3px solid var(--silver);
+  display: inline-block;
+  padding-bottom: 0.2rem;
+  margin-top: 0;
+}
+
+/* ====== ABOUT BAR: thick black stripe with photo + text ====== */
+.about-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--black);
+  color: #fff;
+  padding: 1.2rem;
+  border-radius: 12px;
+  margin-top: 0.5rem;
+}
+
+/* ====== SILVER RING AROUND PHOTO ====== */
+.photo-frame {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  padding: 5px;
+  background: conic-gradient(
+    from 210deg,
+    #fdfdfd, #9a9a9a, #f5f5f5, #6f6f6f, #e8e8e8, #b5b5b5, #fdfdfd
+  );
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.15),
+    0 4px 14px rgba(0,0,0,0.5),
+    inset 0 0 6px rgba(255,255,255,0.5);
+}
+
+.about-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid #1a1a1a;
+}
+
+.about-text {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* responsive: stack photo above text on small screens */
+@media (max-width: 500px) {
+  .about-bar { flex-direction: column; text-align: center; }
+}
+
+ul { padding-left: 1.2rem; }
+li { margin-bottom: 0.5rem; }
+
+/* ====== SOCIAL / CONTACT LINKS ====== */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--charcoal);
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  background: var(--light-gray);
+  transition: background 0.15s ease, color 0.15s ease;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.social-link:hover {
+  background: var(--black);
+  color: #fff;
+  text-decoration: none;
+}
+
+.social-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.social-link span {
+  overflow-wrap: anywhere;
+}
