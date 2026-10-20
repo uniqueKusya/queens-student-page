@@ -1,0 +1,22 @@
+def solution(A):
+    east = 0    # number of cars going east seen so far
+    pairs = 0   # number of passing pairs
+
+
+    for x in A:
+        if x == 0:
+            east += 1
+        else:
+            pairs += east
+            if pairs > 1000000000:
+                return -1
+
+
+    return pairs
+
+
+
+
+# Test
+print(solution([0, 1, 0, 1, 1]))  # 5
+print(solution([1, 1, 1]))        # 0
