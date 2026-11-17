@@ -1,0 +1,30 @@
+def solution(A, B, C):
+  #get the number of planks N and number of nails M
+  N = len(A)
+  M = len(C)
+
+
+  for J in range(1, M+1): #using J nails sequentially, starting from 1 up to M
+    all_nailed = True
+
+
+    for K in range(N): #checking every plank K from 0 to N-1
+      plank_nailed = False
+
+
+      for I in range(J): #checking if any of the first J nails hits plank K
+        if A[K] <= C[I] <= B[K]:
+          plank_nailed = True
+          break #this plank is nailed, moving to the next plank
+
+
+      if not plank_nailed: #if even one plank has no nail, J nails is not enough
+        all_nailed = False
+        break
+
+
+    if all_nailed: #if all planks were nailed using J nails, return J
+      return J
+
+
+  return -1 #if all M nails were used and some planks are still not nailed
