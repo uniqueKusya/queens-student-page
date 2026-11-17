@@ -1,0 +1,28 @@
+def solution(A):
+  N = len(A)
+  intersections = 0
+
+
+  #pick the first disc J
+  for J in range(N): #find the left and right edges of disc J on the x-axis
+    left_J = J - A[J]
+    right_J = J + A[J]
+
+
+     #pick the second disc K starting from J+1
+    for K in range(J + 1, N): #find the left and right edges of disc K on the x-axis
+      left_K = K - A[K]
+      right_K = K + A[K]
+
+
+      #Two intervals [left_J, right_J] and [left_J, right_J] overlap
+      #if the start of each is less than or equal to the end of the other
+      if left_J <= right_K and left_K <= right_J:
+        intersections = intersections + 1
+
+
+        if intersections > 10000000: #stop early if the limit is exceeded
+          return -1
+
+
+  return intersections
