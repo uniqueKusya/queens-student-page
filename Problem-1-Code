@@ -1,0 +1,16 @@
+def solution(A):
+  N = len(A) #get length of the array
+
+
+  min_sum = abs(A[0] + A[0]) #start with (0,0) as the initial minimum
+
+
+  for P in range(N): #picks the first index P
+    for Q in range(P, N): #picks the second index Q
+      current_sum = abs(A[P] + A[Q])
+     
+      if current_sum < min_sum:
+        min_sum = current_sum
+
+
+  return min_sum
