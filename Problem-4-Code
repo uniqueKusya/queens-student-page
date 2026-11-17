@@ -1,0 +1,26 @@
+def solution(K, M, A):
+  min_limit = max(A) #answer cannot be smaller than the largest single element in A
+
+
+  max_limit = sum(A) #answer cannot be larger than the sum of all elements in A
+
+
+  for guess in range(min_limit, max_limit + 1):
+    blocks_used = 1
+    current_sum = 0
+
+
+    #try to put number into blocks without exceeding "guess"
+    for number in A:
+      if current_sum + number > guess: #start a new block if adding the number makes the sum too big
+        blocks_used = blocks_used +1
+        current_sum = number
+      else: #add the number to the current block
+        current_sum = current_sum + number
+
+
+    if blocks_used <= K:
+      return guess
+
+
+  return max_limit
