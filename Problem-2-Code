@@ -1,0 +1,11 @@
+def solution(A):
+  N = len(A) #get the total n of elements in the array
+  count = 0
+
+
+  for P in range(N): #picks the first side at index P
+    for Q in range(P +1, N): #picks the second side at index Q
+      for R in range(Q + 1, N): #picks the third side at index R
+        if (A[P] + A[Q] > A[R]) and (A[Q] + A[R] > A[P]) and (A[R] + A[P] > A[Q]): #check all three triangle inequality rules
+          count = count + 1
+  return count
